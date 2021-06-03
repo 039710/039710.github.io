@@ -12,6 +12,22 @@
     justify-content: center;
     align-items: center;
 }
+
+.footer{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer p{
+    font-size: 16px;
+    color: white;
+    margin: 5px; 
+}
+
+.footer nav a{
+    font-size: 13px;
+}
+
 .header img{
     width:40px;
     margin-right: 15px;
@@ -41,7 +57,6 @@
     text-shadow: #0c2461 1px 0 10px;
     text-align: center;
     height: 800px;
-<<<<<<< HEAD
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -59,9 +74,6 @@
 
 .headline p{
     margin-top: 20px;
-=======
-    width: 48%;  
->>>>>>> origin/mustain
 }
 
 .hp-info{
@@ -84,14 +96,6 @@
     width :200px;
     margin : 0 auto;
     margin-top:25px;
-<<<<<<< HEAD
-    background-color : #4a69bd;
-    border-color: #60a3bc;
-}
-
-.headline button:hover{
-    background-color: aquamarine;
-=======
     background-color: #0c2461;
     box-shadow: inset 0 0 0 0 #e58e26;
     transition: ease-out 1s;
@@ -101,7 +105,6 @@
 .headline button:hover{
     box-shadow: inset 300px 0 0 0 #e58e26;
     color: #0c2461;
->>>>>>> origin/mustain
 }
 
 
