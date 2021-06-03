@@ -27,7 +27,7 @@
         <div class="headline">
             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum placeat repellendus blanditiis quia quasi quisquam explicabo alias incidunt, quos neque tenetur aliquam enim, distinctio porro! Excepturi totam itaque repellendus veritatis.</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur natus aut at eveniet? Quod placeat vel omnis expedita minima, consequatur distinctio eligendi nisi ut nulla alias facilis sit, molestias similique.</p>
-            <button>Hello World!</button>
+            <button>Order Now!</button>
         </div>
         <div class="hp-info">
             <img src="./assets/images/phone.png" alt="">
@@ -65,23 +65,52 @@
 
     <hr>
     <div class="pre-order" id= "order">
-        <div class="form">
-            <div>
-                <label for="nama">Nama : </label>
-                <input type="text" name="nama" id="nama">
-                <label for="email">Email : </label>
-                <input type="text" name="email" id="email">
-                <label for="noHp">Nomor Handphone : </label>
-                <input type="text" name="noHp" id="noHp">
-                <label for="jumlah">Jumlah : </label>
-                <input type="text" name="jumlah" id="jumlah">
-                <button id = 'orderNow'>Order Skrg</button>
-            </div>
+        <div class = 'user-info'>
+            <div class="inline-block">
+                <form>
+                    <div class="inline-block">
+                        <label for="nama">Nama </label>
+                        <input type="text" name="nama" id="nama" required>
+                    </div>
+                    <div class="inline-block">
+                        <label for="email">Email </label>
+                        <input type="text" name="email" id="email" required>
+                    </div>
+                    <div class="inline-block">
+                        <label for="noHp">Nomor Handphone </label>
+                        <input type="text" name="noHp" id="noHp" required minlength="12">
+                    </div>
+                    <div class="inline-block">
+                        <label for="jumlah">Jumlah </label>
+                        <input type="text" name="jumlah" id="jumlah" required value="1">    
+                    </div>
+                    <input type="submit" value="Order skrg" id ='orderNow'>
+                    <!-- <button id = 'orderNow'>Order Skrg</button> -->
+                </form>
+            </div>            
+        </div>
+        <hr>
+        
+    </div>
+    <div id="details-purchased">
+        <div class = 'customer-details'>
+            <h2 id = 'namaCust'>Test</h2>
+            <h4 id = 'emailCust'>Test@gmail.com</h4>
+            <h4 id = 'noHpCust'>0712312312</h4>
+            <h4><span id = 'jumlahItem'>4</span></h4>
+            <h4><span id="totalHarga">2400</span>USD</h4>
         </div>
     </div>
+    <footer class="footer">
+        <nav style = "font-style: italic;">
+            <a href="#">Ahmad Mustain Billah</a>
+            <a href="#">Cut Aisyah Ilmy</a>
+            <a href="#">Garry Agassi</a>
+
+        </nav>
+    </footer>
 
     <!-- script -->
-
     <script src="./js/index.js"></script> 
 </body>
 </html>

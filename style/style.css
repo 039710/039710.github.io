@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-.header{
+.header,.footer{
     background-color: navy;
     height: 50px;
     text-align: center;
@@ -16,7 +16,7 @@
     width:40px;
     margin-right: 15px;
 }
-.header nav a{
+.header nav a, footer nav a{
     text-decoration: none;
     margin-right: 25px;
     color: white;
@@ -24,8 +24,6 @@
 }
 
 .hero{
-    min-width: 100vw;
-    /* height: 400px; */
     min-height: 95vh;
     border : 1px solid red;
     display:flex;
@@ -39,6 +37,7 @@
     border : 1px solid blue;
     text-align: center;
     height: 800px;
+    width: 48%;
 
 }
 .hp-info{
@@ -46,6 +45,7 @@
     border : 1px solid blue;
     text-align: center;
     height: 800px;
+    width: 48%
 }
 .hp-info img{
     width:20%;
@@ -77,20 +77,77 @@
     border : 2px solid gray;
     margin: 20px;
     border-radius: 25px;
+    box-shadow: black 3px 7px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content:center;
 }
 
-.pre-order{
-    display :block;
-    width : 100%;
+.pre-order, #details-purchased{
+    display :flex;
     height : 500px;
     align-items : center;
     justify-content : center;
+    border: 2px solid pink;
+}
+
+.user-info,.customer-details{
+    display :flex;
+    flex-direction:column;
+    border : 3px solid lightblue;
+    padding : 25px;
+    border-radius : 25px;
+    box-shadow: black 3px 7px;
+}
+
+#details-purchased{
+    height:300px;
+    display:none;
+}
+
+.customer-details{
+    width:30%;
+}
+
+.inline-block{
+    display : inline-block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.inline-block label{
+    width :100px;
+}
+
+.user-info input[type="text"]{
+    padding : 5px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.user-info label{
+    display : inline-block;
+    width :150px;
+}
+
+.user-info button{
+    padding : 10px;
+    border-radius: 25px;
+    background-color:lightgray;
+    font-size:16px;
+    width:50%;
+    margin: 0 auto;
 }
 
 form{
-    width :50%;
-    height : 250px;
-    display :flex;
+    display:flex;
     flex-direction: column;
 }
-
+.user-info input[type="submit"]{
+    padding : 10px;
+    border-radius: 25px;
+    background-color:lightgray;
+    font-size:16px;
+    width:50%;
+    margin: 0 auto;
+}
