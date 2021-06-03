@@ -4,6 +4,61 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+html{
+    scroll-behavior:smooth;
+}
+body{
+    background: lightgray;
+    /* background: linear-gradient(90deg, rgba(12,36,97,1) 1%, rgba(250,152,58,1) 100%); */
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    border: 7px solid linear-gradient(45deg,#0c2461,#e58e26);
+    box-shadow: 0 0 2.5px 2px rgb(0, 0,0,0.5);
+    background : linear-gradient(45deg,#0c2461,#e58e26);
+}
+::-webkit-scrollbar-thumb{
+    /* background : linear-gradient(45deg,#fff,#e58e26); */
+    background-color: rgb(0, 225, 255);
+    border-radius : 3px solid lightgray;
+}
+/*  */
+#anchorOrder{
+    text-decoration: none;
+    letter-spacing:2px;
+    color : lightgray;
+    font-size:16px;
+}
+img#hacktivlogo:hover{
+    width:50px;
+}
+a#navAnchor:hover{
+    color : #82ccdd;
+}
+
+a#navAnchor:active{
+    font-size: 14px;
+    transition-property: font-size;
+    transition-duration: 4s;
+    transition-delay: 2s;
+}
+
+.sticky{
+    position: sticky;
+    display: inline-block;
+    left: 84.5%;
+    top:15%;
+    margin-left: 20px;
+    z-index: 100;
+    font-style: italic;
+    border: 5px solid #fa983a;
+    padding: 5px;
+    border-radius: 75px;
+}
 .header,.footer{
     background-color:#0c2461;
     height: 50px;
@@ -16,6 +71,8 @@
 .footer{
     display: flex;
     flex-direction: column;
+    padding-bottom: 40px;
+    padding-top: 40px;
 }
 
 .footer p{
@@ -44,11 +101,13 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    margin-bottom: 35px;
+    /* box-shadow: black 3px 7px; */
     /* background-image: url("../assets/images/background-hero.jpg"); */
     /* background-image: linear-gradient(25turn,rgba(0,0,0,0.8),rgba(255,255,255,0.7),) */
 }
 
-.headline{
+.headline, .bg-orange{
     background-color: #fa983a;
 }
 
@@ -57,14 +116,14 @@
     text-shadow: #0c2461 1px 0 10px;
     text-align: center;
     height: 800px;
-    width: 50%;
+    width: 46%;
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
 }
 
-.hp-info{
+.hp-info, .bg-red{
     background-color: #eb2f06;
 }
 
@@ -78,14 +137,15 @@
 
 .hp-info{
     color : white;
-    border : 1px solid blue;
+    /* border : 1px solid blue; */
     text-align: center;
     height: 800px;
-    width: 48%
+    width: 46%
     
 }
 .hp-info img{
-    width:20%;
+    width:35%;
+    transform: rotate(20deg);
 }
 
 .headline button{
@@ -107,6 +167,21 @@
     color: #0c2461;
 }
 
+.headline:hover, .hp-info:hover{
+    background-color: #82ccdd;
+    opacity: 85%
+}
+
+.headline{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    box-shadow: rgba(0,0,0,0.9) 3px 7px;
+}
+.hp-info{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: rgba(0,0,0,0.9) 3px 7px;
+}
 
 .feature{
     min-height: 100vh;
@@ -114,7 +189,7 @@
     display : flex;
     flex-wrap: wrap;
     justify-content: center;
-    border : 4px dotted red;
+    /* border : 4px dotted red; */
 }
 
 .box{
@@ -129,6 +204,17 @@
     display: flex;
     align-items: center;
     justify-content:center;
+    flex-direction:column;
+    font-size:20px;
+}
+
+.box:hover{
+    background-color: #82ccdd;
+    opacity: 85%
+}
+
+.box h1{
+    margin-bottom: 20px;
 }
 
 .pre-order, #details-purchased{
@@ -136,9 +222,13 @@
     height : 500px;
     align-items : center;
     justify-content : center;
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
 }
 
+#details-purchased{
+    display :flex;
+    flex-direction: column;
+}
 .user-info,.customer-details{
     display :flex;
     flex-direction:column;
@@ -165,7 +255,11 @@
 .inline-block label{
     width :100px;
 }
-
+.user-info{
+    background: rgb(229,142,38);
+    background: radial-gradient(circle, rgba(229,142,38,1) 1%, rgba(235,47,6,1) 100%);
+    opacity: 95%;
+}
 .user-info input[type="text"]{
     padding : 5px;
     border-radius: 25px;
@@ -216,10 +310,12 @@ form{
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    border: 3px dotted lightgray;
+    /* border: 3px dotted lightgray; */
 }
-.faq h2{
+#faq-header-text{
     margin-top:25px;
+    font-size :35px;
+    font-style: bold;
 }
 .faq-list{
 width: 70%;
@@ -229,13 +325,14 @@ border-radius: 25px;
 overflow: hidden;
 }
 .faq-list button{
-    font-size: 18px;
+    font-size: 22px;
     border-radius: 5px;
     margin: 1px;
+    background-color: #e58e26;
 }
 
 .faq-list .panel{
-    background-color: #eee;
+    background-color: #e58e26;
 }
 .accordion {
 background-color: #eee;
@@ -251,12 +348,13 @@ transition: 0.4s;
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-background-color: #ccc;
+background-color: #82ccdd;
 }
 .accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
+    font-size: 20px;
+    font-style: bold;
+    color:#444;
     float: right;
     margin-left: 5px;
 }
@@ -272,4 +370,5 @@ padding : 20px;
 background-color: white;
 display: none;
 overflow: hidden;
+color: #444;
 } 

@@ -29,6 +29,9 @@ let noHpCustDetails = document.getElementById('noHpCust')
 let jumlahCustDetails = document.getElementById('jumlahItem')
 let totalCostDetails = document.getElementById('totalHarga')
 let totalDeliveryDetails = document.getElementById('hitung')
+let watchers = document.getElementById('jumlahOrang')
+
+watchers.innerHTML = Math.floor(hitungDelivery(20, 60))
 
 let divDetailsPurchased = document.getElementById('details-purchased')
 btnOrder.addEventListener('click',(event) =>{
@@ -53,6 +56,8 @@ btnOrder.addEventListener('click',(event) =>{
     hp.stock -= objCustomer.jumlahDiBeli
     stockHp.innerHTML = hp.stock
 
+    let diskon = objCustomer.totalCost - (objCustomer.totalCost*0.25)
+
     
 
     // update div customer-details
@@ -65,7 +70,7 @@ btnOrder.addEventListener('click',(event) =>{
     }else{
         totalCostDetails.innerHTML = objCustomer.totalCost
     }
-    totalDeliveryDetails.innerHTML = `Delivery may take up to ${Math.ceil(countDelivery)} days`
+    totalDeliveryDetails.innerHTML = `*Pengiriman akan memakan waktu sekitar ${Math.ceil(countDelivery)} hari`
     //show div detail purchased
     divDetailsPurchased.style.display = 'flex'
 })
@@ -98,3 +103,4 @@ for (let i = 0; i < acc.length; i++) {
     }
   });
 } 
+

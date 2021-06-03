@@ -8,59 +8,71 @@
     <!-- Import roboto font from google font --><link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     <!-- Tambahin logo hacktiv-->
+    <link rel="icon" href="./assets/logos/hacktivlogo.png">
 
 
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <div class="header">
-        <img src="./assets/logos/hacktivlogo.png" alt="hacktivlogo">
+        <img src="./assets/logos/hacktivlogo.png" alt="hacktivlogo" id="hacktivlogo">
         <nav>
-            <a href="#">Our New Arrival</a>
-            <a href="#spesification">Spesification</a>
-            <a href="#order">Pre Order</a>
-            <a href="#">About us</a>
+            <a href="#" id= 'navAnchor'>Our New Arrival</a>
+            <a href="#spesification" id= 'navAnchor'>Spesification</a>
+            <a href="#order" id= 'navAnchor'>Pre Order</a>
+            <a href="#about" id= 'navAnchor'>About us</a>
         </nav>
     </div>
 
-    <div class="hero">
-        <div class="headline">
-            <h2>The Newest Hackphone Has Arrived ! Grab Yours Now !</h2>
-            <p>Place your order and we will deliver it to you in no times</p>
-            <button>Order Now!</button>
-        </div>
-        <div class="hp-info">
-            <img src="./assets/images/phone.png" alt="">
+    <div class="sticky">
+        <h4> <span id="jumlahOrang"></span> orang sedang melihat produk ini</h3>
+    </div>
 
-            <div class="phone-info">
-                <h2>Nama : <span id = "hpName"></span></h2>
-                <h2>Harga : <span id = "harga"></span> usd</h2>
-                <h2>Stock : <span id = "stock"></span> buah</h2>
+    <div class="hero">
+            <div class="headline">
+                <h2>The Newest Hacktiv Phone Has Arrived ! Grab Yours Now !</h2>
+                <p>Place your order and we will deliver it to you in no times</p>
+                <button><a href="#order" id="anchorOrder"> Get Yours Here!</a></button>
             </div>
-        </div>
+            <div class="hp-info">
+                <img src="./assets/images/phone.png" alt="">
+    
+                <div class="phone-info">
+                    <h2>Nama : <span id = "hpName"></span></h2>
+                    <h2>Harga : <span id = "harga"></span> usd</h2>
+                    <h2>Stock : <span id = "stock"></span> buah</h2>
+                </div>
+            </div>
     </div>
     
     <div class="feature" id = 'spesification'><!-- Container Box -->
-        <!-- Box-1 -->
-        <div class="box"> 
+        <div class="box bg-orange b1"> 
             <!-- content 1 -->
-            <p>Lorem ipsum dolor sit amet.</p>
+            <h1>Specification</h1>
+            <p>Capacity : 64 GB</p>
+            <p>Height : 150,9 mm</p>
+            <p>camera : Dua kamera 12 MP Ultra Wide dan Wide</p>
         </div>
         <!-- Box-2 -->
-        <div class="box">
+        <div class="box bg-red" id ="about">
             <!-- content 2 -->
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, rem!</p>
+            <h1>About Hacktiv Pro Phone</h1>
+            <p>Hacktiv pro phone is the best smartphones ever designed, created and used.</p>    
+            <br> 
+            <p> has the best specifications ever in this world</p>
         </div>
         <!-- Box-3 -->
-        <div class="box">
+        <div class="box bg-orange">
             <!-- content 3 -->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, esse?</p>
+            <h1>Promotion</h1>
+            <p>If you buy 4 Hacktiv Pro Phone, you'll get 25% discount !</p>
         </div>
         <!-- Box-4 -->
-        <div class="box">
+        <div class="box bg-red" >
         <!-- content 4 -->
-        <p>Lorem ipsum dolor sit amet.</p>
-        </div>
+            <h1>Delivery Time Estimation</h1>
+            <p>We will deliver your phone just between 5 to 10 days !</p>
+        </div> 
     </div>
 
     <hr>
@@ -93,33 +105,40 @@
         
     </div>
     <div id="details-purchased">
+        <h3 class="invoice-text" style="text-align:center">Your Invoice</h3>
+        <hr>
         <div class = 'customer-details'>
-            <h2 id = 'namaCust'>Test</h2>
-            <h4 id = 'emailCust'>Test@gmail.com</h4>
-            <h4 id = 'noHpCust'>0712312312</h4>
-            <h4><span id = 'jumlahItem'>4</span></h4>
-            <h4><span id="totalHarga">2400</span>USD</h4>
-            <br>
+            <h3>Selamat <span id="namaCust"></span>! Kamu berhasil ikut dalam Pre order Hacktiv Phone Pro 99</h3>
+            <h3>Anda telah membeli Hacktiv Phone sebanyak  <span id="jumlahItem"></span> dengan total harga  <span id="totalHarga"></span></h3>
+            <h3>Kami akan menghubungimu melalui <span id="emailCust"></span>atau nomor <span id="noHpCust"></span></h3>
             <h6><span id="hitung">5</span></h6>
+
+            <!-- <h2 id = 'namaCust'>Test</h2> -->
+            <!-- <h4 id = 'emailCust'>Test@gmail.com</h4>
+            <h4 id = 'noHpCust'>0712312312</h4> -->
+            <!-- <h4><span id = 'jumlahItem'>4</span></h4>
+            <h4><span id="totalHarga">2400</span>USD</h4> -->
+            <br>
         </div>
     </div>
 
     <div class="faq">
-        <h2 id="faq-header-text">Frequently ask questions</h2>
+        <h2 id="faq-header-text">Frequently Asked Questions</h2>
+        <hr style = "width : 25%">
         <div class = "faq-list">
-            <button class="accordion">Kenapa Hacktiv Pro Phone 99?</button>
+            <button class="accordion">Kenapa Hacktiv Phone Pro 99?</button>
             <div class="panel">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque officiis inventore nihil exercitationem sunt, sapiente ratione excepturi molestiae voluptas obcaecati maxime architecto tempora perferendis odio accusantium! Alias doloribus neque aspernatur quidem impedit nesciunt iste nihil quaerat reiciendis quos, quibusdam aut quam labore! Inventore voluptatem quidem, debitis architecto fuga voluptatibus doloribus!</p>
+                <p>Hacktiv adalah sebuah perusahaan yang telah berjalan di bidang teknologi semenjak tahun 1756 dan masih berjalan sampai sekarang. Kami telah melakukan riset teknologi terbaik dari seluruh penjuru dunia dan membuat HacktivOS. HacktivOS telah terbukti mengalahkan AndriodOS dan EpplaOS dari segala sisi.</p>
             </div>
             
-            <button class="accordion">Berapa lama delivery time untuk pre order</button>
+            <button class="accordion">Berapa lama waktu pengiriman untuk Pre Order?</button>
             <div class="panel">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est repudiandae quam sapiente nobis, architecto voluptates placeat doloribus in quo iste ea, quis libero harum neque a sed, accusantium temporibus culpa omnis quia ratione beatae iusto consectetur dolores? Voluptatem incidunt quibusdam nulla nam commodi consequatur officiis aliquam dolore maiores doloribus aspernatur odio ipsum a, repudiandae sed deleniti totam voluptates quidem aperiam cum vitae repellat molestias fugit? Qui cupiditate vitae hic facilis! Sed numquam eaque itaque asperiores dicta voluptatum saepe provident neque molestias! Repellendus nemo totam, ad id esse voluptatum similique assumenda enim, at labore ab vitae doloribus in sint magnam dolore!</p>
+                <p>Tergantung, tergantung Math.random() mengeluarkan angka berapa.</p>
             </div>
             
             <button class="accordion">Apakah Hacktiv Pro Phone 99 sound nya ajib?</button>
             <div class="panel">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet dicta aut quod? Veritatis adipisci rerum dolore tenetur ducimus laudantium assumenda, consectetur voluptates explicabo ratione impedit consequatur ipsam aliquam natus nam pariatur facilis sunt quibusdam accusantium. Tenetur numquam necessitatibus sed magni, quam facere quis consequuntur itaque eligendi iste deleniti obcaecati. Qui corporis aut sit quos illo nisi? Obcaecati, in. Vero, animi nesciunt. Sint explicabo, provident quaerat corrupti dolorum dolores pariatur distinctio alias temporibus, incidunt voluptas officiis?</p>
+                <p>Yoi coysku.</p>
             </div> 
         </div>
         
@@ -133,8 +152,6 @@
             <a href="#">Garry Agassi</a>
         </nav>
     </footer>
-
-    <!-- script -->
     <script src="./js/index.js"></script> 
 </body>
 </html>
