@@ -49,15 +49,38 @@ a#navAnchor:active{
 
 .sticky{
     position: sticky;
-    display: inline-block;
+    display: flex;
+    flex-direction:column;
+    width: 400px;
     left: 84.5%;
-    top:15%;
+    top:50%;
     margin-left: 20px;
     z-index: 100;
     font-style: italic;
-    border: 5px solid #fa983a;
-    padding: 5px;
+    background-color:rgba(255,255,255,0.5);
+    border: 1px solid #fa983a;
+    padding: 30px;
     border-radius: 75px;
+}
+.sticky h4{
+    /* margin-top:-20px; */
+}
+/* #logoOverFlow{
+    position: relative;
+ 
+    top: 0%;
+    left: -0%;
+    width: 15%;
+  
+    opacity: 75%;
+} */
+
+#preOrderBtn {
+	/* margin: 0 auto; */
+	top: 80px;
+	position: absolute;
+	right: 4px;
+	opacity: 93.1%;
 }
 .header,.footer{
     background-color:#0c2461;
@@ -147,6 +170,10 @@ a#navAnchor:active{
     width:35%;
     transform: rotate(20deg);
 }
+.hp-info img:hover{
+    width:40%;
+    transform: rotateY(-20deg)
+}
 
 .headline button{
     color: #e58e26;
@@ -182,7 +209,25 @@ a#navAnchor:active{
     border-bottom-right-radius: 25px;
     box-shadow: rgba(0,0,0,0.9) 3px 7px;
 }
+.box hr{
+    width: 35%;
+    border : 2px solid #0c2461;
+    margin-bottom: 20px;
+}
+hr#invoice, #faqHr{
+    width: 15%;
+    border : 2px solid #0c2461;
+    margin-bottom: 20px;
+}
+hr#tertarikHr{
+    width:24%;
+    border : 2px solid #0c2461;
+    margin-bottom: 40px;
+}
 
+.spec{
+    text-align: left;
+}
 .feature{
     min-height: 100vh;
     width :100%;
@@ -199,7 +244,7 @@ a#navAnchor:active{
     border : 2px solid gray;
     margin: 20px;
     border-radius: 25px;
-    box-shadow: black 3px 7px;
+    box-shadow: 15px 15px #0c2461;
     text-align: center;
     display: flex;
     align-items: center;
@@ -214,11 +259,12 @@ a#navAnchor:active{
 }
 
 .box h1{
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .pre-order, #details-purchased{
     display :flex;
+    flex-direction: column;
     height : 500px;
     align-items : center;
     justify-content : center;
@@ -244,7 +290,12 @@ a#navAnchor:active{
 }
 
 .customer-details{
-    width:30%;
+    width:35%;
+    background: rgb(229,142,38);
+    background: radial-gradient(circle, rgba(229,142,38,1) 1%, rgba(235,47,6,1) 100%);
+    opacity: 95%;
+    width: 35%;
+    
 }
 
 .inline-block{
@@ -259,16 +310,38 @@ a#navAnchor:active{
     background: rgb(229,142,38);
     background: radial-gradient(circle, rgba(229,142,38,1) 1%, rgba(235,47,6,1) 100%);
     opacity: 95%;
+    width:35%;
+    
+}
+.inline-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .user-info input[type="text"]{
     padding : 5px;
     border-radius: 25px;
+    width: 350px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 15px;
+}
+#jumlah{
+    padding : 5px;
+    border-radius: 25px;
+    width: 350px;
+    font-weight: bold;
     text-align: center;
 }
 
 .user-info label{
     display : inline-block;
-    width :150px;
+    width :30%;
+    margin-right: 10px;
+}
+.inline-block label{
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .user-info button{
@@ -284,21 +357,23 @@ form{
     display:flex;
     flex-direction: column;
 }
-.user-info input[type="submit"]{
+.user-info input[type="submit"], #preOrderBtn{
     color: #e58e26;
     border-radius: 10px;
     padding : 10px;
     font-size : 16px;
     width :200px;
     margin : 0 auto;
-    margin-top:25px;
+    margin-top:15px;
+    width:50%;
+    margin-left: 32%;;
     background-color: #0c2461;
     box-shadow: inset 0 0 0 0 #e58e26;
     transition: ease-out 1s;
     outline: none
 }
 
-.user-info input[type="submit"]:hover{
+.user-info input[type="submit"]:hover , #preOrderBtn:hover{
     box-shadow: inset 300px 0 0 0 #e58e26;
     color: #0c2461;
 }
@@ -322,6 +397,7 @@ width: 70%;
 margin: 25px 0;
 /* padding : 10px; */
 border-radius: 25px;
+box-shadow: 2px 5px #0c2461;
 overflow: hidden;
 }
 .faq-list button{
@@ -348,19 +424,24 @@ transition: 0.4s;
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-background-color: #82ccdd;
+background-color: #0c2461;
+
+}
+.accordion:hover{
+color:white;
 }
 .accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 20px;
     font-style: bold;
-    color:#444;
+    color:#0c2461;
     float: right;
     margin-left: 5px;
 }
 
 .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
+    color:#0c2461;
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -372,3 +453,6 @@ display: none;
 overflow: hidden;
 color: #444;
 } 
+.panel p {
+    padding-left: 15px;
+}

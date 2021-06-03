@@ -25,12 +25,16 @@
     </div>
 
     <div class="sticky">
-        <h4> <span id="jumlahOrang"></span> orang sedang melihat produk ini</h3>
+        <!-- <img src="../assets/logos/hacktivlogo.png" alt="" id ='logoOverFlow'> -->
+        <h4> <span id="jumlahOrang"></span> orang sedang melihat produk ini</h4>
+        <h4> Pesan sekarang juga, sebelum kehabisan gan!</h4>
+        <button id ='preOrderBtn' style="border-radius:25px"><a href="#order" id="anchorOrder"> Get Yours Here!</a></button>
     </div>
 
     <div class="hero">
             <div class="headline">
-                <h2>The Newest Hacktiv Phone Has Arrived ! Grab Yours Now !</h2>
+                <img src="../assets/logos/hacktivlogo.png" alt="">
+                <h1>The Newest Hacktiv Phone Has Arrived! <br>Grab Yours Now !</h1>
                 <p>Place your order and we will deliver it to you in no times</p>
                 <button><a href="#order" id="anchorOrder"> Get Yours Here!</a></button>
             </div>
@@ -38,9 +42,9 @@
                 <img src="./assets/images/phone.png" alt="">
     
                 <div class="phone-info">
-                    <h2>Nama : <span id = "hpName"></span></h2>
-                    <h2>Harga : <span id = "harga"></span> usd</h2>
-                    <h2>Stock : <span id = "stock"></span> buah</h2>
+                    <h2><span id = "hpName" style = "letter-spacing:2px"></span></h2>
+                    <h3>Harga : <span id = "harga"></span> usd</h3>
+                    <h3>Stock : <span id = "stock"></span> buah</h3>
                 </div>
             </div>
     </div>
@@ -49,14 +53,19 @@
         <div class="box bg-orange b1"> 
             <!-- content 1 -->
             <h1>Specification</h1>
-            <p>Capacity : 64 GB</p>
-            <p>Height : 150,9 mm</p>
-            <p>camera : Dua kamera 12 MP Ultra Wide dan Wide</p>
+            <hr>
+            <div class="spec">
+                <p>Capacity : 64 GB</p>
+                <p>Height : 150,9 mm</p>
+                <p>Camera : Dua kamera 999 MP Ultra Wide dan Wide</p>
+                <p>Battery :85.000 MaH</p>
+            </div>
         </div>
         <!-- Box-2 -->
         <div class="box bg-red" id ="about">
             <!-- content 2 -->
             <h1>About Hacktiv Pro Phone</h1>
+            <hr style="width:58%">
             <p>Hacktiv pro phone is the best smartphones ever designed, created and used.</p>    
             <br> 
             <p> has the best specifications ever in this world</p>
@@ -65,19 +74,28 @@
         <div class="box bg-orange">
             <!-- content 3 -->
             <h1>Promotion</h1>
-            <p>If you buy 4 Hacktiv Pro Phone, you'll get 25% discount !</p>
+            <hr style="width:27%">
+            <p>- If you buy 4 Hacktiv Pro Phone, you'll get 25% discount!</p>
+            <p>- Get our special Hacktiv Pro Phone limited edition TUMBLER!</p>
+            <p>- Get Tinder Gold voucher to find your partner! if you dont have one :P</p>
+            
         </div>
         <!-- Box-4 -->
         <div class="box bg-red" >
         <!-- content 4 -->
             <h1>Delivery Time Estimation</h1>
-            <p>We will deliver your phone just between 5 to 10 days !</p>
+            <hr style="width:62%">
+            <p>- We will deliver your phone just between 5 to 10 days !</p>
+            <p>- deliver time based on Math.Random() function :P</p>
         </div> 
     </div>
 
-    <hr>
+
     <div class="pre-order" id= "order">
+        <h1 style="font-size:35px">Tertarik? Tunggu apalagi!!</h1>
+        <hr id ='tertarikHr'>
         <div class = 'user-info'>
+            <!-- <h2 style="text-align:center;margin-bottom:20px;">Form pre order</h2> -->
             <div class="inline-block">
                 <form>
                     <div class="inline-block">
@@ -96,35 +114,28 @@
                         <label for="jumlah">Jumlah </label>
                         <input type="text" name="jumlah" id="jumlah" required value="1">    
                     </div>
-                    <input type="submit" value="Pre Order!" id ='orderNow'>
+                    <input type="submit" value="PRE ORDER SEKARANG!" id ='orderNow'>
                     <!-- <button id = 'orderNow'>Order Skrg</button> -->
                 </form>
             </div>            
         </div>
-        <hr>
         
     </div>
     <div id="details-purchased">
-        <h3 class="invoice-text" style="text-align:center">Your Invoice</h3>
-        <hr>
+        <h1 class="invoice-text" style="text-align:center">Your Invoice</h1>
+        <hr id='invoice'>
         <div class = 'customer-details'>
-            <h3>Selamat <span id="namaCust"></span>! Kamu berhasil ikut dalam Pre order Hacktiv Phone Pro 99</h3>
-            <h3>Anda telah membeli Hacktiv Phone sebanyak  <span id="jumlahItem"></span> dengan total harga  <span id="totalHarga"></span></h3>
-            <h3>Kami akan menghubungimu melalui <span id="emailCust"></span>atau nomor <span id="noHpCust"></span></h3>
-            <h6><span id="hitung">5</span></h6>
-
-            <!-- <h2 id = 'namaCust'>Test</h2> -->
-            <!-- <h4 id = 'emailCust'>Test@gmail.com</h4>
-            <h4 id = 'noHpCust'>0712312312</h4> -->
-            <!-- <h4><span id = 'jumlahItem'>4</span></h4>
-            <h4><span id="totalHarga">2400</span>USD</h4> -->
+            <h4>Selamat <span id="namaCust"></span>! Kamu berhasil ikut dalam Pre order Hacktiv Phone Pro 99.</h4>
+            <h4 style ="text-align:center;">Anda telah membeli Hacktiv  Pro Phone sebanyak  <span id="jumlahItem"></span> dengan total harga  <span id="totalHarga"></span></h4>
+            <h4 style ="text-align:center;">Kami akan menghubungimu melalui <span id="emailCust"></span>atau nomor <span id="noHpCust"></span></h4>
+            <h6 style="text-align:center; margin-top:25px"><span id="hitung" >5</span></h6>
             <br>
         </div>
     </div>
 
     <div class="faq">
         <h2 id="faq-header-text">Frequently Asked Questions</h2>
-        <hr style = "width : 25%">
+        <hr style = "width : 25%" id ='faqHr'>
         <div class = "faq-list">
             <button class="accordion">Kenapa Hacktiv Phone Pro 99?</button>
             <div class="panel">
@@ -133,7 +144,7 @@
             
             <button class="accordion">Berapa lama waktu pengiriman untuk Pre Order?</button>
             <div class="panel">
-                <p>Tergantung, tergantung Math.random() mengeluarkan angka berapa.</p>
+                <p>Tergantung, tergantung <strong> Math.random()</strong> mengeluarkan angka berapa.</p>
             </div>
             
             <button class="accordion">Apakah Hacktiv Pro Phone 99 sound nya ajib?</button>
@@ -146,7 +157,7 @@
     <footer class="footer">
         <p>&copy; Copyright 2021 Group 5 Hackathon0</p>
         
-        <nav style = "font-style: italic;">
+        <nav>
             <a href="#">Ahmad Mustain Billah</a>
             <a href="#">Cut Aisyah Ilmy</a>
             <a href="#">Garry Agassi</a>
