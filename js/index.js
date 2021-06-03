@@ -53,6 +53,8 @@ btnOrder.addEventListener('click',(event) =>{
     hp.stock -= objCustomer.jumlahDiBeli
     stockHp.innerHTML = hp.stock
 
+    
+
     // update div customer-details
     namaCustDetails.innerHTML = objCustomer.nama
     emailCustDetails.innerHTML = objCustomer.email
