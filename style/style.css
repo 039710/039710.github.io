@@ -151,3 +151,82 @@ form{
     width:50%;
     margin: 0 auto;
 }
+
+footer{
+    display:flex;
+    flex-direction: column;
+
+}
+footer p{
+    margin : 5px 0;
+    color : white;
+    font-size: 16px;
+}
+
+footer nav a{
+    font-size: 16px;
+}
+/* Accordion style */
+ /* Style the buttons that are used to open and close the accordion panel */
+.faq{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    border: 3px dotted lightgray;
+}
+.faq h2{
+    margin-top:25px;
+}
+.faq-list{
+width: 70%;
+margin: 25px 0;
+/* padding : 10px; */
+border-radius: 25px;
+overflow: hidden;
+}
+.faq-list button{
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 1px;
+}
+
+.faq-list .panel{
+    background-color: #eee;
+}
+.accordion {
+background-color: #eee;
+color: #444;
+cursor: pointer;
+padding: 18px;
+width: 100%;
+text-align: left;
+border: none;
+outline: none;
+transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+background-color: #ccc;
+}
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+padding: 0 18px;
+padding : 20px;
+background-color: white;
+display: none;
+overflow: hidden;
+} 
