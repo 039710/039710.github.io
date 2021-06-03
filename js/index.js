@@ -12,7 +12,10 @@ namaHp.innerHTML = hp.name;
 hargaHp.innerHTML = hp.price;
 stockHp.innerHTML = hp.stock;
 
-
+//function Delivery
+function hitungDelivery(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
 
 // console.log(object)
@@ -25,10 +28,12 @@ let emailCustDetails = document.getElementById('emailCust')
 let noHpCustDetails = document.getElementById('noHpCust')
 let jumlahCustDetails = document.getElementById('jumlahItem')
 let totalCostDetails = document.getElementById('totalHarga')
+let totalDeliveryDetails = document.getElementById('hitung')
 
 let divDetailsPurchased = document.getElementById('details-purchased')
 btnOrder.addEventListener('click',(event) =>{
     event.preventDefault();
+    let countDelivery = hitungDelivery(5,10)
     let nama = document.getElementById('nama').value;
     let email = document.getElementById('email').value;
     let noHp = document.getElementById('noHp').value;
@@ -48,12 +53,19 @@ btnOrder.addEventListener('click',(event) =>{
     hp.stock -= objCustomer.jumlahDiBeli
     stockHp.innerHTML = hp.stock
 
+    
+
     // update div customer-details
     namaCustDetails.innerHTML = objCustomer.nama
     emailCustDetails.innerHTML = objCustomer.email
     noHpCustDetails.innerHTML = objCustomer.noHp
     jumlahCustDetails.innerHTML = objCustomer.jumlahDiBeli
-    totalCostDetails.innerHTML = objCustomer.totalCost
+    if (jumlahCustDetails.innerHTML >3){
+        totalCostDetails.innerHTML = objCustomer.totalCost - (objCustomer.totalCost*0.25)
+    }else{
+        totalCostDetails.innerHTML = objCustomer.totalCost
+    }
+    totalDeliveryDetails.innerHTML = `Delivery may take up to ${Math.ceil(countDelivery)} days`
     //show div detail purchased
     divDetailsPurchased.style.display = 'flex'
 })
@@ -68,3 +80,21 @@ elementJumlah.addEventListener('mouseout', () => {
     }
 })
 
+
+//accordion function forvar 
+const acc = document.getElementsByClassName("accordion");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+} 
