@@ -10,7 +10,11 @@ let hargaHp = document.getElementById('harga');
 let stockHp = document.getElementById('stock');
 namaHp.innerHTML = hp.name;
 hargaHp.innerHTML = hp.price;
-stockHp.innerHTML = hp.stock;
+
+//check if localStorage.getItem('stock') is not null
+if(Number(window.localStorage.getItem('stock')) >= 1){
+  stockHp.innerHTML = Number(window.localStorage.getItem('stock'));
+}
 
 //function Delivery
 function hitungDelivery(min, max) {
@@ -35,6 +39,7 @@ watchers.innerHTML = Math.floor(hitungDelivery(20, 60))
 
 let divDetailsPurchased = document.getElementById('details-purchased')
 btnOrder.addEventListener('click',(event) =>{
+    // prevent the submit button to send.
     event.preventDefault();
     let countDelivery = hitungDelivery(5,10)
     let nama = document.getElementById('nama').value;
@@ -43,7 +48,7 @@ btnOrder.addEventListener('click',(event) =>{
     let jumlahDiBeli = document.getElementById('jumlah').value;
     const totalCost = jumlahDiBeli * hp.price;
     console.log('ini total cost',totalCost)
-    // create object
+    // create customer  object
     objCustomer = {
         nama,
         email,
@@ -52,14 +57,15 @@ btnOrder.addEventListener('click',(event) =>{
         totalCost,
     }
 
-    // ngurangin stock hp dan update html stock hp
+    //reduce the stocks and update the html value
     hp.stock -= objCustomer.jumlahDiBeli
     stockHp.innerHTML = hp.stock
-
     let diskon = objCustomer.totalCost - (objCustomer.totalCost*0.25)
 
     
-
+    //set local storages
+    window.localStorage.setItem('stock',hp.stock);
+    console.log('localStorage stock',window.localStorage.getItem('stock'))
     // update div customer-details
     namaCustDetails.innerHTML = objCustomer.nama
     emailCustDetails.innerHTML = objCustomer.email
@@ -70,7 +76,8 @@ btnOrder.addEventListener('click',(event) =>{
     }else{
         totalCostDetails.innerHTML = objCustomer.totalCost
     }
-    totalDeliveryDetails.innerHTML = `*Pengiriman akan memakan waktu sekitar ${Math.ceil(countDelivery)} hari`
+    totalDeliveryDetails.innerHTML = `*Pengiriman akan memakan waktu sekitar ${Math.ceil(countDelivery)} hari
+                                       <br> ID Pembelian kamu adalah: ${Math. floor(Date. now() / 1000)} `
     //show div detail purchased
     divDetailsPurchased.style.display = 'flex'
 })
