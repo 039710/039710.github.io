@@ -2,7 +2,7 @@
 let hp = {
 	name : 'Hacktiv Pro 99',
 	price : '600',
-	stock : 40,
+	stock : 41,
 }
 
 let namaHp = document.getElementById('hpName');
@@ -12,8 +12,16 @@ namaHp.innerHTML = hp.name;
 hargaHp.innerHTML = hp.price;
 
 //check if localStorage.getItem('stock') is not null
+console.log('isi local storage', window.localStorage.getItem('stock'))
 if(Number(window.localStorage.getItem('stock')) >= 1){
+  console.log('if')
   stockHp.innerHTML = Number(window.localStorage.getItem('stock'));
+}else{
+  console.log('else')
+  // hp.stock = 20;
+  stockHp.innerHtml = hp.stock;
+  document.getElementById('stock').innerHTML = "Stock habis gan!"
+  console.log(hp.stock)
 }
 
 //function Delivery
@@ -55,40 +63,104 @@ btnOrder.addEventListener('click',(event) =>{
         noHp,
         jumlahDiBeli,
         totalCost,
+        id : 0
     }
 
     //reduce the stocks and update the html value
-    hp.stock -= objCustomer.jumlahDiBeli
+   
     stockHp.innerHTML = hp.stock
     let diskon = objCustomer.totalCost - (objCustomer.totalCost*0.25)
 
     
-    //error handling 
+    //error handling check character nama
     // console.log("test",objCustomer.nama.length);
     let namaIsRight = true
-    if(objCustomer.nama.length < 2 || objCustomer.nama > 20){
+    let flagAngka = false
+    //check character length
+    if(objCustomer.nama.length < 2 || objCustomer.nama.length > 20){
       namaIsRight = false
       alert("Nama harus lebih dari 2 huruf dan kurang dari 20 huruf")
+    }
+    // looping check jika ada angka di nama
+    for(let i = 0; i <objCustomer.nama.length; i ++ ){
+      if(objCustomer.nama.charCodeAt(i)>=48 && objCustomer.nama.charCodeAt(i)<=57){
+        flagAngka = true
+      }
+    }
+    if(flagAngka){
+      alert("Nama tidak boleh berisi angka");
+    }
+
+    //handling nomorHp jika bukang angka,
+    // 'asdasdsa'
+    // 0819274319123
+    console.log(objCustomer.noHp.length)
+    let isValidHp = false;
+    if(objCustomer.noHp.length >= 10){
+      if(!isNaN(Number(objCustomer.noHp)) && (objCustomer.noHp.length >= 10 || objCustomer.noHp.length<=13)){
+        console.log('input bener gan!')
+        isValidHp = true;
+      }else{
+        alert('Nomor hp tidak boleh berisi character alphabet')
+      }
+    }else if(objCustomer.noHp.length<=9){
+      alert('Nomor hp tidak boleh kurang dari 10')
     } 
 
-    let foundSymbol = false
+    //handling email
+    let isValidEmail = false;
+    let counter = -1;
     for (let i = 0; i < objCustomer.email.length; i++) {
       // console.log();
+      if(isValidEmail === false){
+        counter++
+      }
       if (objCustomer.email[i] === '@' ) {
-        foundSymbol = true
-        break
+        isValidEmail = true
+        continue
       }
     }
 
-    if (!foundSymbol) {
-      alert("Masukkan nama email anda dengan benar")
-    } else if(objCustomer.email.length<=3){
-      alert("Nama email minimal adalah 4 huruf")
+    // handling jumlah stocks
+    let isValidStock = false;
+    console.log(objCustomer.jumlahDiBeli, 'ini jumlah yg ingin di beli', window.localStorage.getItem('stock'))
+    if(objCustomer.jumlahDiBeli <= window.localStorage.getItem('stock')){
+      isValidStock = true;
+    }else{
+      alert('Tidak boleh pre order lebih dari jumlah stock yg tersedia!')
     }
 
-    if (namaIsRight === true && foundSymbol === true) {
-      //set local storages
-      window.localStorage.setItem('stock',hp.stock);
+
+    // console.log(counter)
+    if (!isValidEmail) {
+      alert("Masukkan nama email anda dengan benar")
+    }
+    if(objCustomer.email.length<=3){
+      alert("Nama email minimal adalah 4 huruf")
+      isValidEmail = false;
+    }
+        //set local storages
+    console.log(namaIsRight,isValidEmail,counter, isValidHp, isValidStock)
+    if (namaIsRight && isValidEmail && counter >3 && isValidHp && isValidStock) {
+      console.log(window.localStorage.getItem('stock'),'before')
+      hp.stock -= objCustomer.jumlahDiBeli
+      console.log(window.localStorage.getItem('stock'),'after')
+      window.localStorage.setItem('stock',hp.stock ); 
+      document.getElementById('stock').innerHTML = hp.stock
+
+      // ketika berhasil
+      console.log('isi local storage', window.localStorage.getItem('stock'))
+      if(Number(window.localStorage.getItem('stock')) >= 1){
+        console.log('if')
+        stockHp.innerHTML = Number(window.localStorage.getItem('stock'));
+      }else{
+        console.log('else')
+        // hp.stock = 20;
+        stockHp.innerHtml = hp.stock;
+        document.getElementById('stock').innerHTML = "Stock habis gan!"
+        console.log(hp.stock)
+      }
+          
       console.log('localStorage stock',window.localStorage.getItem('stock'))
       // update div customer-details
       namaCustDetails.innerHTML = objCustomer.nama
@@ -103,6 +175,7 @@ btnOrder.addEventListener('click',(event) =>{
       totalDeliveryDetails.innerHTML = `*Pengiriman akan memakan waktu sekitar ${Math.ceil(countDelivery)} hari
                                        <br> ID Pembelian kamu adalah: ${Math. floor(Date. now() / 1000)} `
       //show div detail purchased
+      objCustomer.id = Math. floor(Date. now() / 1000);
       divDetailsPurchased.style.display = 'flex'
     } 
 })
