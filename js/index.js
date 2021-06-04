@@ -4,7 +4,9 @@ let hp = {
 	price : '600',
 	stock : 41,
 }
-
+let listPreOrder = {
+}
+let counterPerson = 0;
 let namaHp = document.getElementById('hpName');
 let hargaHp = document.getElementById('harga');
 let stockHp = document.getElementById('stock');
@@ -177,8 +179,44 @@ btnOrder.addEventListener('click',(event) =>{
       //show div detail purchased
       objCustomer.id = Math. floor(Date. now() / 1000);
       divDetailsPurchased.style.display = 'flex'
+
+      // masukan ke dalam ListPreOrder.
+      if(listPreOrder[counterPerson] === undefined) {
+        listPreOrder[counterPerson] = objCustomer.nama;
+        counterPerson++;
+        reRenderList(listPreOrder);
+      }
+      
     } 
 })
+
+const reRenderList = (listPreOrder) => {
+  const getParent = document.getElementById('list-details')
+  getParent.innerHTML = ''
+  for(key in listPreOrder) {
+   console.log(key,listPreOrder[key]);
+   const index = String(key)
+   const createP = document.createElement('p')
+   createP.setAttribute("id", key);
+   createP.innerHTML = `${listPreOrder[key]} <button id = 'remove' onclick= 'RemoveObj(this)'> remove </button>`
+   getParent.appendChild(createP)
+   //addEventListener
+  }
+  const button1 = document.getElementById('remove')
+  button1.addEventListener("click",(index) => {
+    console.log('di function clink button',this.index)
+    
+    // console.log(index,index.value, index.innerHTML)
+  })
+}
+
+function RemoveObj (obj) {
+  console.log('ini this',obj)
+  console.log(obj.parentNode.id, ' ini id')
+  delete listPreOrder[obj.parentNode.id]
+  document.getElementById(obj.parentNode.id).remove()
+}
+
 
 // function onChange
 let elementJumlah = document.getElementById('jumlah')
