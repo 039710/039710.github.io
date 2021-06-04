@@ -63,6 +63,27 @@ btnOrder.addEventListener('click',(event) =>{
     let diskon = objCustomer.totalCost - (objCustomer.totalCost*0.25)
 
     
+    //error handling 
+    // console.log("test",objCustomer.nama.length);
+    if(objCustomer.nama.length < 2 || objCustomer.nama > 20){
+      alert("Nama harus lebih dari 2 huruf dan kurang dari 20 huruf")
+    } 
+
+    let foundSymbol = false
+    for (let i = 0; i < objCustomer.email.length; i++) {
+      // console.log();
+      if (objCustomer.email[i] === '@' ) {
+        foundSymbol = true
+        break
+      }
+    }
+
+    if (!foundSymbol) {
+      alert("Masukkan nama email anda dengan benar")
+    } else if(objCustomer.email.length<=3){
+      alert("Nama email minimal adalah 4 huruf")
+    }
+
     //set local storages
     window.localStorage.setItem('stock',hp.stock);
     console.log('localStorage stock',window.localStorage.getItem('stock'))
@@ -84,9 +105,10 @@ btnOrder.addEventListener('click',(event) =>{
 
 // function onChange
 let elementJumlah = document.getElementById('jumlah')
+console.log(objCustomer);
 
 elementJumlah.addEventListener('mouseout', () => {
-    console.log(parseInt(elementJumlah.value,10), typeof parseInt(elementJumlah.value,10));
+    // console.log(parseInt(elementJumlah.value,10), typeof parseInt(elementJumlah.value,10));
     if(parseInt(elementJumlah.value,10) < 1){
         alert('Jumlah yang ingin di order harus lebih dari 0')
     }
