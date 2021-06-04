@@ -65,7 +65,9 @@ btnOrder.addEventListener('click',(event) =>{
     
     //error handling 
     // console.log("test",objCustomer.nama.length);
+    let namaIsRight = true
     if(objCustomer.nama.length < 2 || objCustomer.nama > 20){
+      namaIsRight = false
       alert("Nama harus lebih dari 2 huruf dan kurang dari 20 huruf")
     } 
 
@@ -84,23 +86,25 @@ btnOrder.addEventListener('click',(event) =>{
       alert("Nama email minimal adalah 4 huruf")
     }
 
-    //set local storages
-    window.localStorage.setItem('stock',hp.stock);
-    console.log('localStorage stock',window.localStorage.getItem('stock'))
-    // update div customer-details
-    namaCustDetails.innerHTML = objCustomer.nama
-    emailCustDetails.innerHTML = objCustomer.email
-    noHpCustDetails.innerHTML = objCustomer.noHp
-    jumlahCustDetails.innerHTML = objCustomer.jumlahDiBeli
-    if (jumlahCustDetails.innerHTML >3){
+    if (namaIsRight === true && foundSymbol === true) {
+      //set local storages
+      window.localStorage.setItem('stock',hp.stock);
+      console.log('localStorage stock',window.localStorage.getItem('stock'))
+      // update div customer-details
+      namaCustDetails.innerHTML = objCustomer.nama
+      emailCustDetails.innerHTML = objCustomer.email
+      noHpCustDetails.innerHTML = objCustomer.noHp
+      jumlahCustDetails.innerHTML = objCustomer.jumlahDiBeli
+      if (jumlahCustDetails.innerHTML >3){
         totalCostDetails.innerHTML = objCustomer.totalCost - (objCustomer.totalCost*0.25)
-    }else{
+      }else{
         totalCostDetails.innerHTML = objCustomer.totalCost
-    }
-    totalDeliveryDetails.innerHTML = `*Pengiriman akan memakan waktu sekitar ${Math.ceil(countDelivery)} hari
+      }
+      totalDeliveryDetails.innerHTML = `*Pengiriman akan memakan waktu sekitar ${Math.ceil(countDelivery)} hari
                                        <br> ID Pembelian kamu adalah: ${Math. floor(Date. now() / 1000)} `
-    //show div detail purchased
-    divDetailsPurchased.style.display = 'flex'
+      //show div detail purchased
+      divDetailsPurchased.style.display = 'flex'
+    } 
 })
 
 // function onChange
